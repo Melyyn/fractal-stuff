@@ -1,0 +1,15 @@
+Scale = Scale + Scale_vary*(abs(Scale)-1)
+x = TgladFold(x,fold)
+y = TgladFold(y,fold)
+// z is not folded
+if SorC != 0
+rr = x*x + y*y
+else
+rr = x*x + y*y + z*z
+endif
+if rr < sqr(Min_R) then m = Scale/sqr(Min_R) else
+if rr < 1 then m = Scale/rr else m = Scale
+x = x * m + Cy
+y = y * m + Cx
+z = z * m + Cz
+Rotate3D(x,y,z,angles)
